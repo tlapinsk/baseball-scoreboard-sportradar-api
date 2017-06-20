@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'sportradar/index'
+  
+  resources :sportradars do
+	  collection do
+	  	get :mlbSportradar
+	 	end
+	end
+
+  root 'sportradar#index'
 end
+
