@@ -1,66 +1,28 @@
 //This function pulls data from sportradar_controller.rb
-// Stores it in local storage
-var callAPI=function(){
-	return $.ajax(){
-		type: 'GET',
-		url: '/sportradars/mlbSportradar',
-		data: {format: 'json'},
-		dataType: 'json',
-		error: function (x, e) { alert(e.responseText); },
-		success: function (boxScores) {
-			alert(result);
-		}
-	};
-}
-
-$(window).load = callAPI;
-
 // var callAPI=function(){
-// 	$.ajax({
-// 	  type:"GET",
-// 	  url:"INSERT RAKE ROUTE",
-// 	  dataType:"json",
-// 	  data: {some_parameter: 'hello'},
-// 	  success:function(result){
-// 	    alert(result);
-//   	}
-// 	});
+// 	return $.getJSON("/sportradars/mlbSportradar", function(data) {
+//     var html = '';
+//     $.each(data, function(key, value){
+//         html += '<div class="game_id">';
+//         html += '<table>';
+//         html += '<tr>';
+//         html += '<th>"Name"</th>';
+//         html += '</tr>';
+//         html += '</table>';
+//         // html += '<img src="images/'+value.product+'.png"/>';
+//         // html += '<label for="'+value.product+'">'+value.name+':</label>';
+//         // html += '<input type="text" id="'+value.product+'" name="'+value.product+'" value="0" stock="'+value.stock+'" price="'+value.price+'" required>';
+//         html += '</div>';
+//     });
+// 		$('#yourContainerId').html(html);
+// 		});
 // }
 
-// $.ajax({
-//    url: 'http://api.joind.in/v2.1/talks/10889',
-//    data: {
-//       format: 'json'
-//    },
-//    error: function() {
-//       $('#info').html('<p>An error has occurred</p>');
-//    },
-//    dataType: 'jsonp',
-//    success: function(data) {
-//       var $title = $('<h1>').text(data.talks[0].talk_title);
-//       var $description = $('<p>').text(data.talks[0].talk_description);
-//       $('#info')
-//          .append($title)
-//          .append($description);
-//    },
-//    type: 'GET'
-// });
+// $(window).load = callAPI;
 
-// $(document).on("click","#executer-button",callExecuter);
-
-//var callAPI=function(){
-// 	$.ajax({
-// 		type: 'GET',
-// 		url: '/INSERT RAKE ROUTE HERE',
-// 		data: {INSERT command here
-
-// 					},
-// 		dataType: 'json',
-// 		succes:function(){
-// 			//Notification that data was pulled
-// 			$(this).addClass('done');
-// 		}
-// 	});
-// }
-
-
+$(function) (){
+	$.ajax({
+		type: 'GET',
+		url: '/sportradars/mlbSportradar'
+	})
+}
