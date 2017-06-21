@@ -15,17 +15,21 @@ class SportradarController < ApplicationController
 		games = hash["league"]["games"]
 		# puts games
 
-		games.each do |games|
-		  puts "#{games['game']['id']}"
-		  puts "#{games['game']['home']['name']}"
-		  puts "#{games['game']['home']['runs']}"
-		  puts "#{games['game']['home']['hits']}"
-		  puts "#{games['game']['home']['errors']}"
-		  puts "#{games['game']['away']['name']}"
-		  puts "#{games['game']['away']['runs']}"
-		  puts "#{games['game']['away']['hits']}"
-		  puts "#{games['game']['away']['errors']}"
+		g = []
+		games.each do |game|
+		  g << {
+			  id: 				 game['game']['id'],
+			  home_name: 	 game['game']['home']['name'],
+			  home_runs: 	 game['game']['home']['runs'],
+			  home_hits: 	 game['game']['home']['hits'],
+			  home_errors: game['game']['home']['errors'],
+			  away_name: 	 game['game']['away']['name'],
+			  away_runs:   game['game']['away']['runs'],
+			  away_hits:   game['game']['away']['hits'],
+			  away_errors: game['game']['away']['errors']
+   		}
 		end
+		puts g
 	end
 end
 
