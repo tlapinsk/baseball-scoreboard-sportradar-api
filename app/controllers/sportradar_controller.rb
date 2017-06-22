@@ -1,7 +1,7 @@
-require 'httparty'
-require 'json'
-
 class SportradarController < ApplicationController
+	require 'httparty'
+	require 'json'
+
   def index
   end
 
@@ -29,6 +29,17 @@ class SportradarController < ApplicationController
 			  away_errors: game['game']['away']['errors']
    		}
 		end
-		puts g
+		@data = g
+		
+		respond_to do |format|
+			format.html
+			format.json
+			format.js
+		end
 	end
+
+	# def create_json
+	# 	data = {:message => "Alert this!"}
+	# 	render :json => data, status => :ok
+	# end
 end

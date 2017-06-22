@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sportradar/index'
   
-  resources :sportradars do
+  resources :sportradar do
 	  collection do
 	  	get :mlbSportradar
 	 	end
