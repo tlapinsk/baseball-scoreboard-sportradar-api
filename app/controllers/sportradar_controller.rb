@@ -1,9 +1,17 @@
 class SportradarController < ApplicationController
+	# respond_to :html, :js, :json
 	require 'httparty'
 	require 'json'
+	require 'responders'
 
   def index
   end
+
+  def show
+  end
+
+  def create
+	end
 
   def mlbSportradar
 		date = Time.now.strftime("%Y/%m/%d")
@@ -15,9 +23,9 @@ class SportradarController < ApplicationController
 		games = hash["league"]["games"]
 		# puts games
 
-		g = []
+		@g = []
 		games.each do |game|
-		  g << {
+		  @g << {
 			  id: 				 game['game']['id'],
 			  home_name: 	 game['game']['home']['name'],
 			  home_runs: 	 game['game']['home']['runs'],
@@ -29,12 +37,10 @@ class SportradarController < ApplicationController
 			  away_errors: game['game']['away']['errors']
    		}
 		end
-		@data = g
 		
 		respond_to do |format|
-			format.html
-			format.json
-			format.js
+			format.js { render json: @g }
+			format.html 
 		end
 	end
 
