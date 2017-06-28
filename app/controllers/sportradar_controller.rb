@@ -27,6 +27,7 @@ class SportradarController < ApplicationController
 		games.each do |game|
 		  @g << {
 			  id: 				 game['game']['id'],
+			  # inning:      game['game']['final']['inning'],
 			  home_name: 	 game['game']['home']['name'],
 			  home_runs: 	 game['game']['home']['runs'],
 			  home_hits: 	 game['game']['home']['hits'],
@@ -34,7 +35,7 @@ class SportradarController < ApplicationController
 			  away_name: 	 game['game']['away']['name'],
 			  away_runs:   game['game']['away']['runs'],
 			  away_hits:   game['game']['away']['hits'],
-			  away_errors: game['game']['away']['errors']
+			  away_errors: game['game']['away']['errors'],
    		}
 		end
 		

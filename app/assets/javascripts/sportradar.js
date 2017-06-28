@@ -5,31 +5,34 @@ $(document).ready(function worker() {
 	  dataType: "JSON",
 	  success: function(data) {
 	    console.log(data);
+	    $( "#tables" ).empty();
 		  $.each(data, function(key, val) {
-				$( "#container" ).append('<table>');
-				$( "#container" ).append('<tr>');
-				$( "#container" ).append('<th>Team</th>');
-				$( "#container" ).append('<th>Runs</th>');
-				$( "#container" ).append('<th>Hits</th>');
-				$( "#container" ).append('<th>Errors</th>');
-				$( "#container" ).append('</tr>');
-				$( "#container" ).append('<tr>');
-				$( "#container" ).append("<td id=''"+key+"''>"+val.home_name+"</td>");
-				$( "#container" ).append("<td id=''"+key+"''>"+val.home_runs+"</td>");
-				$( "#container" ).append("<td id=''"+key+"''>"+val.home_hits+"</td>");
-				$( "#container" ).append("<td id=''"+key+"''>"+val.home_errors+"</td>");
-				$( "#container" ).append("</tr>");
-				$( "#container" ).append("<tr>");
-				$( "#container" ).append("<td id=''"+key+"''>"+val.away_name+"</td>");
-				$( "#container" ).append("<td id=''"+key+"''>"+val.away_runs+"</td>");
-				$( "#container" ).append("<td id=''"+key+"''>"+val.away_hits+"</td>");
-				$( "#container" ).append("<td id=''"+key+"''>"+val.away_errors+"</td>");
-				$( "#container" ).append("</tr>");
-				$( "#container" ).append("</table>");
+				$( "#tables" ).append('<table>');
+				$( "#tables" ).append('<tr>');
+				// $( "#tables" ).append("<th>"+val.inning+"</th>");
+				$( "#tables" ).append('<th>Team</th>');
+				$( "#tables" ).append('<th>Runs</th>');
+				$( "#tables" ).append('<th>Hits</th>');
+				$( "#tables" ).append('<th>Errors</th>');
+				$( "#tables" ).append('</tr>');
+				$( "#tables" ).append('<tr>');
+				$( "#tables" ).append("<td id=''"+key+"''>"+val.home_name+"</td>");
+				$( "#tables" ).append("<td id=''"+key+"''>"+val.home_runs+"</td>");
+				$( "#tables" ).append("<td id=''"+key+"''>"+val.home_hits+"</td>");
+				$( "#tables" ).append("<td id=''"+key+"''>"+val.home_errors+"</td>");
+				$( "#tables" ).append("</tr>");
+				$( "#tables" ).append("<tr>");
+				$( "#tables" ).append("<td id=''"+key+"''>"+val.away_name+"</td>");
+				$( "#tables" ).append("<td id=''"+key+"''>"+val.away_runs+"</td>");
+				$( "#tables" ).append("<td id=''"+key+"''>"+val.away_hits+"</td>");
+				$( "#tables" ).append("<td id=''"+key+"''>"+val.away_errors+"</td>");
+				$( "#tables" ).append("</tr>");
+				$( "#tables" ).append("</table>");
+				$( "#tables" ).append("<br>");
 			});
 		},
-		// complete: function() {
-		// 	setTimeout(worker, 5000);
-	 //  }
+		complete: function() {
+			setTimeout(worker, 60000);
+	  }
 	});
 });
