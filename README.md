@@ -59,6 +59,7 @@ This section provides more detailed instructions for the application, including 
 2. Navigate to the `mlbSportradar` function (last function).
 
 **Pulling additional data points from the API**
+
 To pull other data from the API, edit the 'games.each do |game|' loop. Make sure you dive through the JSON correctly!
 
 Navigate to 'sportradar.js' to edit the loop that displays the data. Add the item where you would like it to sit in the table.
