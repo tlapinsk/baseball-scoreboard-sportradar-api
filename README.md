@@ -67,9 +67,9 @@ The code is missing a couple, typically standard, pieces. See below:
 
 1. Error handling
 
-2. Current Inning (in the table)
+2. Current inning (in the table)
 
-3. Team Logos
+3. Team logos
 
 4. Better column formatting
 
