@@ -1,15 +1,15 @@
+// AJAX to get JSON and display on the page
 $(document).ready(function worker() {
 	$.ajax({
 	  type: "GET",
 	  url: "/sportradar/mlbSportradar",
 	  dataType: "JSON",
 	  success: function(data) {
-	    console.log(data);
+	    // console.log(data);
 	    $( "#tables" ).empty();
 		  $.each(data, function(key, val) {
 				$( "#tables" ).append('<table>');
 				$( "#tables" ).append('<tr>');
-				// $( "#tables" ).append("<th>"+val.inning+"</th>");
 				$( "#tables" ).append('<th>Team</th>');
 				$( "#tables" ).append('<th>Runs</th>');
 				$( "#tables" ).append('<th>Hits</th>');
@@ -31,6 +31,7 @@ $(document).ready(function worker() {
 				$( "#tables" ).append("<br>");
 			});
 		},
+		// Calls worker function every minute to refresh table data
 		complete: function() {
 			setTimeout(worker, 60000);
 	  }

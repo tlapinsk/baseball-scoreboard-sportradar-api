@@ -13,6 +13,7 @@ class SportradarController < ApplicationController
   def create
 	end
 
+	# Call Sportradar MLB v6 API - Daily Box Score, parse / format JSON, and prep for AJAX consumption
   def mlbSportradar
 		date = Time.now.strftime("%Y/%m/%d")
 		@response = HTTParty.get("http://api.sportradar.us/mlb-t6/games/#{date}/boxscore.json?api_key=#{ENV['SPORTRADAR_MLB_API_KEY']}")
@@ -27,7 +28,6 @@ class SportradarController < ApplicationController
 		games.each do |game|
 		  @g << {
 			  id: 				 game['game']['id'],
-			  # inning:      game['game']['final']['inning'],
 			  home_name: 	 game['game']['home']['name'],
 			  home_runs: 	 game['game']['home']['runs'],
 			  home_hits: 	 game['game']['home']['hits'],
@@ -44,9 +44,4 @@ class SportradarController < ApplicationController
 			format.html 
 		end
 	end
-
-	# def create_json
-	# 	data = {:message => "Alert this!"}
-	# 	render :json => data, status => :ok
-	# end
 end
